@@ -11,3 +11,8 @@ Select Distinct(salary) From Salary s1 where (N -1) = (SELECT Count(Distinct(s2.
 Method 2:
 
 Select Top 1 salary From ( Select Top N  salary from Salary Order by salary Desc) Order by salary
+
+
+Method 3: 
+
+Select salary From Salary Group by salary Order by salary Desc Limit 1 Offset N-1
