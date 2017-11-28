@@ -1,0 +1,13 @@
+Given a table containing list of salaries find the Nth  Highest salary ?
+Schema:
+Salary(id, salary)
+
+Query:
+
+Method 1:
+Select Distinct(salary) From Salary s1 where (N -1) = (SELECT Count(Distinct(s2.Salary)) From Salary s2 Where s2.Salary > s1.Salary)
+
+
+Method 2:
+
+Select Top 1 salary From ( Select Top N  salary from Salary Order by salary Desc) Order by salary
